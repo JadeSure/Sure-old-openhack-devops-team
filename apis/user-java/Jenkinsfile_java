@@ -12,8 +12,6 @@ pipeline {
       ImgName = "${dockerUsr}/user-java"
       ImgTag = "${params.ImgTag}"
       WorkDir = "apis/user-java"
-      dockerUsr ="tremendousureeeee"
-      dockerPwd = 'wangshuo678!'
     }
 
     stages {
