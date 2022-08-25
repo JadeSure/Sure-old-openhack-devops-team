@@ -12,6 +12,7 @@ pipeline {
       ImgName = "${dockerUsr}/user-java"
       ImgTag = "${params.ImgTag}"
       WorkDir = "apis/user-java"
+      DockAccount = ""
     }
 
     stages {
