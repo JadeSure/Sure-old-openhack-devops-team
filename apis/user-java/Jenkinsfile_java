@@ -2,6 +2,11 @@ pipeline {
     agent {
         label 'node3'
     }
+    
+    environment {
+        dockerUsr ='tremendousureeeee'
+        dockerPwd = 'wangshuo678!'
+    }
 
     parameters {
   	booleanParam defaultValue: true, description: 'True:  upload image (default); False: will not upload ', name: 'blUploadImg'
@@ -9,7 +14,7 @@ pipeline {
     }
 
     environment {
-      ImgName = "willido/user-java"
+      ImgName = "${dockerUsr}/user-java"
       ImgTag = "${params.ImgTag}"
       WorkDir = "apis/user-java"
     }
@@ -29,7 +34,7 @@ pipeline {
   		expression {return params.blUploadImg}
 	    }
 	    steps {
-                withCredentials([usernamePassword(credentialsId: 'willido_dockerhub', passwordVariable: 'dockerPwd', usernameVariable: 'dockerUsr')]) {
+                withCredentials([usernamePassword(credentialsId: 'Sure_dockerhub', passwordVariable: 'dockerPwd', usernameVariable: 'dockerUsr')]) {
                     // some block
 		    echo 'Dockerhub Login'
                     sh 'sudo docker login -u $dockerUsr -p $dockerPwd'
