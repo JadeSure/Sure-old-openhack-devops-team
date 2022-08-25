@@ -3,11 +3,6 @@ pipeline {
         label 'node3'
     }
     
-    environment {
-        dockerUsr ='tremendousureeeee'
-        dockerPwd = 'wangshuo678!'
-    }
-
     parameters {
   	booleanParam defaultValue: true, description: 'True:  upload image (default); False: will not upload ', name: 'blUploadImg'
   	string defaultValue: '1.0', name: 'ImgTag', trim: true
@@ -17,6 +12,8 @@ pipeline {
       ImgName = "${dockerUsr}/user-java"
       ImgTag = "${params.ImgTag}"
       WorkDir = "apis/user-java"
+      dockerUsr ="tremendousureeeee"
+      dockerPwd = 'wangshuo678!'
     }
 
     stages {
